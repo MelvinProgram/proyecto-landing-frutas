@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Estrella Tropical</title>
+</head>
+<body class="visible bg-body-secondary text-success-emphasis" data-bs-theme="light" id="top">
+    <header id="header">
+        <nav id="navbar" class="d-flex justify-content-between bg-light bg-gradient bg-opacity-60 shadow-sm text-success-emphasis btn-group px-4 m-0 my-0 navbar-expand-lg fixed-top top-1" data-bs-theme="light">
+            <div>
+                <a href="#top"><img class="img-nav" src="./assets/image/ico/logo-estrella-tropical-2.png" alt="Carambola/Estrella" width="200" height="49"></a>
+            </div>
+        <!-- Navbar content -->
+            <ul class="nav nav-tabs align-items-center gap-3">
+                <li class="nav-item">
+                    <a class="nav-link text-success bg-opacity-25 py-2" aria-current="page" href="#bienvenida">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success-emphasis py-2" href="#galeria">Galería de frutas</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link text-success-emphasis py-2" href="#">Contacto</a>
+                </li> -->
+            </ul>
+        </nav>
+    </header>
+    <main class="container-md w-100 mx-4 my-2 bg-light bg-gradient text-success-emphasis  rounded" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100" tabindex="0">
+        
+        <!-- class="bg-light border rounded py-4 text-success-emphasis" -->
+        <section id="bienvenida" class="my-5 px-3 py-4 scroll-section section-visible" data-bs-theme="light">
+            <div class="text-center pt-5 mb-4 section-visible scroll-section">
+                <h1 class="display-1 text-success-emphasis pt-5 pb-3">Bienvenidos a Estrella Tropical</h1>
+                <p class="fs-4 fst-italic">Tu destino donde vas a descubrir las frutas exóticas que aún no conoces</p>
+            </div>
+            <hr class="w-75 my-0 border border-success border-1 opacity-75">
+            <!-- Carrusel de frutas exóticas usando Bootstrap 5 -->
+            <div id="frutasCarousel" class="carousel slide my-5 w-100 h-100" data-bs-ride="carousel">
+                <div class="carousel-inner rounded w-100 shadow-sm">
+                    <!-- Pitahaya -->
+                    <div class="carousel-item active">
+                        <a href="#pitahaya"><img src="./assets/image/frutas/pitaya.png" class="d-block w-100 img-0 opacity-100" alt="Pitahaya" title="Pitahaya (Fruta del Dragón)" width="1024" height="1024" loading="lazy"></a>
+                    </div>
+                    <!-- Mangostán -->
+                    <div class="carousel-item">
+                        <a href="#mangostan"><img src="./assets/image/frutas/mangostan.jpg" class="d-block w-100 img-0 opacity-75" alt="Mangostán" title="Mangostán" width="6016" height="4016" loading="lazy"></a>
+                    </div>
+                    <!-- Durian -->
+                    <div class="carousel-item">
+                        <a href="#durian"><img src="./assets/image/frutas/durian.jpg" class="d-block w-100 img-0 opacity-75" alt="Durian" title="Durian"></a>
+                    </div>
+                    <!-- Rambután -->
+                    <div class="carousel-item">
+                        <a href="#rambutan"><img src="./assets/image/frutas/rambutan-4.jpg" class="d-block w-100 img-0 opacity-75" alt="Rambután" title="Rambután (Fruta peluda)" width="3378" height="3512" loading="lazy"></a>
+                    </div>
+                    <!-- Carambola -->
+                    <div class="carousel-item">
+                        <a href="#carambola"><img src="./assets/image/frutas/carambola-2.jpg" class="d-block w-100 img-0 opacity-75" alt="Carambola" title="Carambola (Fruta estrella)" width="999" height="662" loading="lazy"></a>
+                    </div>
+                    <!-- Guayaba Rosa -->
+                    <div class="carousel-item">
+                        <a href="#guayaba-rosa"><img src="./assets/image/frutas/guayaba-rosa-2.jpg" class="d-block w-100 img-0 opacity-75" alt="Guayaba Rosa" title="Guayaba Rosa" width="4987" height="2617" loading="lazy"></a>
+                    </div>
+                    <!-- Lichí -->
+                    <div class="carousel-item">
+                        <a href="#lichi"><img src="./assets/image/frutas/lichi.jpg" class="d-block w-100 img-0 opacity-75" alt="Lichí" title="Lichí" width="3456" height="1661" loading="lazy"></a>
+                    </div>
+                    <!-- Chirimoya -->
+                    <div class="carousel-item">
+                        <a href="#chirimoya"><img src="./assets/image/frutas/chirimoya-2.jpg" class="d-block w-100 img-0 opacity-75" alt="Chirimoya" title="Chirimoya" width="6500" height="4333" loading="lazy"></a>
+                    </div>
+                    <!-- Longan -->
+                    <div class="carousel-item">
+                        <a href="#longan"><img src="./assets/image/frutas/longan-Ojo-de-dragon-2.jpg" class="d-block w-100 img-0 opacity-75" alt="Longan (Ojo de Dragón)" title="Longan (Ojo de Dragón)" width="5520" height="3380" loading="lazy"></a>
+                    </div>
+                    <!-- Maracuyá -->
+                    <div class="carousel-item">
+                        <a href="#maracuya"><img src="./assets/image/frutas/maracuya.jpg" class="d-block w-100 img-0 opacity-75" alt="Maracuyá" title="Maracuyá" width="5040" height="3360" loading="lazy"></a>
+                    </div>
+                </div>
+
+                <!-- Botones de control -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#frutasCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#frutasCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+
+            <hr class="w-75 my-4 border border-success border-1 opacity-75">
+            <div class="text-center px-5 mb-5 text-success-emphasis section-visible scroll-section">
+                <p class="fs-4">En Estrella Tropical, nos apasiona llevarte en un viaje culinario a través de las frutas más exóticas y deliciosas del mundo. Desde la jugosa pitahaya hasta el aromático mangostán, nuestra misión es presentarte una selección cuidadosamente curada de frutas tropicales que no solo deleitarán tu paladar, sino que también aportarán beneficios nutricionales a tu vida diaria.</p>
+                <p class="fs-4">Explora nuestra galería de frutas, aprende sobre sus orígenes y descubre nuevas formas de incorporarlas en tus recetas favoritas. Ya sea que seas un entusiasta de la gastronomía o simplemente alguien que busca añadir un toque de frescura a su dieta, Estrella Tropical es tu fuente confiable para todo lo relacionado con las frutas exóticas.</p>
+            </div>
+            <hr class="w-75 my-4 border border-success border-1 opacity-75">
+
+        </section>
+  
+        <section id="galeria" class="mb-5 scroll-section section-visible" data-bs-theme="light">
+            <div class="d-flex justify-content-center align-items-center flex-column">
+                <h2 class="text-center text-success-emphasis fs-1">Descubre el top 10 de las frutas tropicales más exóticas</h2>
+                <p class="text-center fs-5 fst-italic">Una selección de frutas exóticas y deliciosas que no te puedes perder</p>
+            </div>
+            <hr class="w-75 my-4 border border-success border-1 opacity-75">
+            <!-- Carrusel de frutas exóticas usando Bootstrap 5 -->
+            <div class="container py-5 d-flex justify-content-center align-items-center">
+                <div class="row g-4 w-100 h-100">
+                    <!-- Pitahaya -->
+                    <div class="col-md-4 g-4 scroll-section section-visible">
+                    <div class="card h-100 shadow-sm">
+                        <img id="pitahaya" src="./assets/image/frutas/pitaya.png" class="card-img-top" alt="Pitahaya" width="1024" height="1024" title="Pitahaya">
+                        <div class="card-body">
+                        <h5 class="card-title">Pitahaya (Fruta del Dragón)</h5>
+                        <p class="card-text">Fruta de cáscara rosa con pulpa blanca o roja llena de semillas negras.</p>
+                        <ul>
+                            <li>Alto contenido de antioxidantes</li>
+                            <li>Baja en calorías</li>
+                            <li>Rica en fibra y vitamina C</li>
+                        </ul>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Mangostán -->
+                    <div class="col-md-8 g-4 scroll-section section-visible">
+                    <div class="card h-100 shadow-sm">
+                        <img id="mangostan" src="./assets/image/frutas/mangostan.jpg" class="card-img-top" alt="Mangostán" width="6016" height="4016" title="Mangostán">
+                        <div class="card-body">
+                            <h5 class="card-title">Mangostán</h5>
+                            <p class="card-text">Fruta redonda de cáscara morada con pulpa blanca y dulce.</p>
+                            <ul>
+                                <li>Considerada “la reina de las frutas”</li>
+                                <li>Propiedades antiinflamatorias</li>
+                                <li>Alto en vitamina C</li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Carambola -->
+                    <div class="col-md-7 g-4 scroll-section section-visible">
+                    <div class="card h-100 shadow-sm">
+                        <img id="carambola" src="./assets/image/frutas/carambola-2.jpg" class="card-img-top object-fit-cover" alt="Carambola" width="999" height="662" title="Carambola">
+                        <div class="card-body">
+                        <h5 class="card-title">Carambola (Fruta estrella)</h5>
+                        <p class="card-text">Fruta amarilla con forma de estrella al cortarse en rodajas.</p>
+                        <ul>
+                            <li>Rica en vitamina C</li>
+                            <li>Baja en calorías</li>
+                            <li>Gran poder antioxidante</li>
+                        </ul>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Durian -->
+                    <div class="col-md-5 g-4 scroll-section section-visible">
+                    <div class="card h-100 shadow-sm">
+                        <img id="durian" src="./assets/image/frutas/durian.jpg" class="card-img-top object-fit-cover" alt="Durian" width="3936" height="2624" title="Durian">
+                        <div class="card-body">
+                        <h5 class="card-title">Durian</h5>
+                        <p class="card-text">Fruta grande con espinas y un olor muy fuerte, muy popular en Asia.</p>
+                        <ul>
+                            <li>Rico en carbohidratos</li>
+                            <li>Contiene grasas saludables</li>
+                            <li>Muy energético</li>
+                        </ul>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Rambután -->
+                    <div class="col-md-5 g-4 scroll-section section-visible">
+                    <div class="card h-100 shadow-sm">
+                        <img id="rambutan" src="./assets/image/frutas/rambutan-4.jpg" class="card-img-top" alt="Rambután" width="3378" height="3512" title="Rambután">
+                        <div class="card-body">
+                        <h5 class="card-title">Rambután</h5>
+                        <p class="card-text">Fruta pequeña con “pelitos” rojos y pulpa jugosa.</p>
+                        <ul>
+                            <li>Fuente de hierro</li>
+                            <li>Contiene vitamina C</li>
+                            <li>Refrescante y energizante</li>
+                        </ul>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Guayaba Rosa -->
+                    <div class="col-md-7 g-4 scroll-section section-visible">
+                    <div class="card h-100 shadow-sm">
+                        <img id="guayaba-rosa" src="./assets/image/frutas/guayaba-rosa-2.jpg" class="card-img-top" alt="Guayaba Rosa" width="4987" height="2617" title="Guayaba Rosa">
+                        <div class="card-body">
+                        <h5 class="card-title">Guayaba Rosa</h5>
+                        <p class="card-text">Fruta tropical de pulpa rosa dulce y fragante.</p>
+                        <ul>
+                            <li>Rica en fibra</li>
+                            <li>Alto contenido de vitamina A y C</li>
+                            <li>Favorece la digestión</li>
+                        </ul>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Lichí -->
+                    <div class="col-md-7 g-4 scroll-section section-visible">
+                    <div class="card h-100 shadow-sm">
+                        <img id="lichi" src="./assets/image/frutas/lichi.jpg" class="card-img-top" alt="Lichi" width="3456" height="1661" title="Lichi">
+                        <div class="card-body">
+                        <h5 class="card-title">Lichí</h5>
+                        <p class="card-text">Fruta pequeña de cáscara roja y pulpa blanca muy dulce.</p>
+                        <ul>
+                            <li>Fuente de vitamina C</li>
+                            <li>Contiene potasio y cobre</li>
+                            <li>Apoya al sistema inmune</li>
+                        </ul>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Chirimoya -->
+                    <div class="col-md-5 g-4 scroll-section section-visible">
+                    <div class="card h-100 shadow-sm">
+                        <img id="chirimoya" src="./assets/image/frutas/chirimoya.jpg" class="card-img-top" alt="Chirimoya" width="4380" height="3032" title="Chirimoya">
+                        <div class="card-body">
+                        <h5 class="card-title">Chirimoya</h5>
+                        <p class="card-text">Fruta verde con pulpa blanca, cremosa y muy dulce.</p>
+                        <ul>
+                            <li>Alta en fibra</li>
+                            <li>Fuente de vitaminas B y C</li>
+                            <li>Propiedades antioxidantes</li>
+                        </ul>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Maracuyá -->
+                    <div class="col-md-5 g-4 scroll-section section-visible">
+                    <div class="card h-100 shadow-sm">
+                        <img id="maracuya" src="./assets/image/frutas/maracuya.jpg" class="card-img-top" alt="Maracuyá" width="5040" height="3360" title="Maracuyá">
+                        <div class="card-body">
+                        <h5 class="card-title">Maracuyá</h5>
+                        <p class="card-text">Fruta tropical redonda con pulpa amarilla y aromática.</p>
+                        <ul>
+                            <li>Alto contenido de antioxidantes</li>
+                            <li>Rica en vitamina A y C</li>
+                            <li>Promueve la relajación</li>
+                        </ul>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Longan (Ojo de Dragón) -->
+                    <div class="col-md-7 g-4 scroll-section section-visible">
+                    <div class="card h-100 shadow-sm">
+                        <img id="longan" src="./assets/image/frutas/longan-Ojo-de-dragon-2.jpg" class="card-img-top" alt="Longan" width="5520" height="3380" title="Longan Ojo de Dragón">
+                        <div class="card-body">
+                        <h5 class="card-title">Longan (Ojo de Dragón)</h5>
+                        <p class="card-text">Fruta pequeña similar al lichi, con pulpa translúcida.</p>
+                        <ul>
+                            <li>Rica en vitamina C</li>
+                            <li>Contiene hierro y fósforo</li>
+                            <li>Favorece la circulación</li>
+                        </ul>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin Carrusel de frutas exóticas usando Bootstrap 5 --> 
+        </section>
+
+    </main>
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="img-footer mb-3">
+            <a href="./index.html"><img class="img-nav" src="./assets/image/ico/logo-estrella-tropical-2.png" alt="Carambola/Estrella" width="200" height="49"></a>
+        </div>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/image/ico_redes_sociales/facebook.png" alt="Facebook" width="30" height="30" loading="lazy" title="Facebook">
+            </a>
+            <a href="https://www.x.com/" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/image/ico_redes_sociales/x.png" alt="x" width="30" height="30" loading="lazy" title="X (antes Twitter)">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/image/ico_redes_sociales/instagram.png" alt="Instagram" width="30" height="30" loading="lazy" title="Instagram">
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/image/ico_redes_sociales/linkedin.png" alt="LinkedIn" width="30" height="30" loading="lazy" title="LinkedIn">
+            </a>
+        </div>
+        <div>
+            <!-- <h3>Esto es un H3 en el footer</h3> -->
+            <p>Desarrollado por Melvin B. Derechos reservados &copy; 2025</p>
+        </div>
+        <div>
+            <a href="#top" class="boton">Volver arriba</a>
+        </div>
+        
+    </footer>
+    
+    <!-- Js - Bootsrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- JS -->
+    <script src="./js/main.js"></script>
+
+</body>
+</html>
