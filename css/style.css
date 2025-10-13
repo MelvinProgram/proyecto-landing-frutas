@@ -85,7 +85,8 @@ header{
 /* Carrusel: cada elemento del carrusel se centra
   y mantiene una transición suave al cambiar de slide */
 .carousel-item{
-  object-fit: cover;
+  /* Contenedor del slide: dejar que la imagen dentro controle cómo se escala
+     y centrar el contenido. No forzamos object-fit aquí. */
   width: 100%;
   height: 100%;
   display: flex;
@@ -100,15 +101,15 @@ header{
    - max-height evita que la imagen sea excesivamente alta
 */
 .img-0{
-  /* Ajusta la opacidad y el efecto de desplazamiento */
-  object-fit: cover;
+  /* Imagen principal del carrusel: mostrarla completa dentro del contenedor
+     sin recortar (object-fit: contain). Mantener max-height para no romper el layout. */
+  object-fit: contain;
   width: 100%;
   height: auto;
   max-height: 70vh;
+  background-color: #ffffff; /* evita fondos transparentes extraños */
   filter: brightness(0.7);
   transition: filter 0.3s ease-in-out;
-  /* border-radius: 10px; */
-
 }
 
 .img-0:hover {
@@ -161,10 +162,15 @@ section{
  ******************** Card Style ********************
  ********************            *********************/
 .card-img-top {
-  height: 400px;       /* altura fija */
-  object-fit: cover;   /* recorta pero mantiene proporción */
+  /* Imágenes de las tarjetas: mostrar completas sin recortar.
+     Usamos max-height para mantener el aspecto visual y que las tarjetas
+     conserven altura consistente. */
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  background-color: #ffffff;
   transition: transform 0.3s;
-  aspect-ratio: 9 / 16; /* Mantiene una proporción de 9:16 */
 }
 
 /* Tarjetas (cards)
@@ -213,7 +219,7 @@ section{
 img{
   max-width: 100%;
   height: auto;
-  object-fit: cover;
+  object-fit: contain; /* Mostrar imagen completa dentro del contenedor */
   display: block; /* Elimina el espacio debajo de la imagen */
   margin: 0 auto;
 }
@@ -431,11 +437,12 @@ footer div a img:hover{
   .carousel-item img {
     height: 220px;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain; /* Mostrar la imagen completa en el slide (no recortar) */
     border-radius: 10px;
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
+    background-color: #ffffff;
   } 
 
   footer {
