@@ -1,5 +1,9 @@
 
-/*********************           ********************
+ /* -------------------------------------------------- */
+ /* Estilos generales (colores, fuentes y comportamiento) */
+ /* Comentario: aquí se definen variables de color y reglas
+   globales que afectan a toda la página. */
+ /*********************           ********************
  ******************** Body Style ********************    
  ********************            *********************/
  :root {
@@ -12,8 +16,13 @@
   --bs-dark:      #2F2F2F; /* Contraste oscuro */
 }
 
+/* Estilo del elemento <body>
+   - scroll-behavior: suaviza el desplazamiento
+   - display: se usa layout flexible para centrar contenidos
+   - overflow-x: hidden evita barras horizontales indeseadas
+*/
 body{
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
     
     /* background: linear-gradient(135deg, #ffd83de7, #f39f86c4); */
     background: linear-gradient(135deg, #ffd83d9e, #049a43a2);
@@ -43,6 +52,10 @@ body{
 /*********************           ********************
  ******************** Header Style ********************    
  ********************            *********************/
+/* Header (encabezado)
+   - contiene la imagen de fondo y centra su contenido
+   - tiene sombra y borde redondeado en la parte inferior
+*/
 header{
   width: 100%;
   /* height: 0vh; */
@@ -61,7 +74,8 @@ header{
   z-index: 3;
 } 
 
-/* Estilo para los elementos del carrusel */
+/* Carrusel: cada elemento del carrusel se centra
+  y mantiene una transición suave al cambiar de slide */
 .carousel-item{
   object-fit: cover;
   width: 100%;
@@ -73,11 +87,16 @@ header{
   border-radius: 10px;
 }
 
+/* Imagen principal del carrusel (.img-0)
+   - ocupa el 100% del ancho del contenedor
+   - max-height evita que la imagen sea excesivamente alta
+*/
 .img-0{
   /* Ajusta la opacidad y el efecto de desplazamiento */
   object-fit: cover;
-  width: 100px;
-  height: 70vh;
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
   filter: brightness(0.7);
   transition: filter 0.3s ease-in-out;
   /* border-radius: 10px; */
@@ -115,7 +134,9 @@ section{
   
 }
 
-/* Estado inicial: oculto */
+/* Secciones con efecto de aparición al hacer scroll
+   - .scroll-section comienza invisible y se muestra cuando
+     entra en pantalla añadiendo la clase .visible */
 .scroll-section {
   opacity: 0; /* Inicialmente invisible */
   transform: translateY(10vh); /* Se desplaza un poco hacia abajo */
@@ -138,7 +159,9 @@ section{
   aspect-ratio: 9 / 16; /* Mantiene una proporción de 9:16 */
 }
 
-/* Efecto de elevación */
+/* Tarjetas (cards)
+  - efecto hover para levantar la tarjeta y mostrar el contenido
+*/
 .card {
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
@@ -154,7 +177,10 @@ section{
   transform: scale(1.01);
 }
 
-/* Efecto de desvanecimiento */
+/* Texto dentro de la tarjeta (.card-body)
+   - por defecto tiene menor opacidad para efecto visual
+   - al hacer hover la opacidad pasa a 1 para mejorar lectura
+*/
 .card-body {
   opacity: 50%;
   transition: opacity 0.3s ease-in-out;
@@ -177,10 +203,10 @@ section{
  ********************            *********************/
 
 img{
-  width: 50%;
-  height: 50%;
+  max-width: 100%;
+  height: auto;
   object-fit: cover;
-  /* display: block; Elimina el espacio debajo de la imagen */
+  display: block; /* Elimina el espacio debajo de la imagen */
   margin: 0 auto;
 }
 
@@ -234,6 +260,17 @@ footer div{
   margin: 0 auto;
 }
 
+/* Imágenes (regla global)
+   - max-width y height auto hacen las imágenes responsivas
+*/
+img{
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block; /* Elimina el espacio debajo de la imagen */
+  margin: 0 auto;
+}
+
 /* Estilos para las imágenes de redes sociales del footer */
 footer div a img{
   width: 3vh;
@@ -273,4 +310,164 @@ footer div a img:hover{
   opacity: 1; /* Opacidad al pasar el ratón */
   background-color: #2ecc71; /* Cambia el color de fondo al pasar el ratón */
   color: rgb(0, 0, 0); /* Cambia el color del texto al pasar el ratón */
+}
+
+/*********************           ********************
+ ******************** Responsive Style ********************    
+ ********************            *********************/
+
+/* ------------------------------------------------------------------
+   Reglas responsivas (pantallas pequeñas y móviles)
+   - Aquí se ajustan tamaños y layout para que todo se vea bien
+     en dispositivos con menor ancho.
+   - Usa media queries para 768px (tablets/móviles grandes)
+     y 480px (móviles pequeños).
+*/
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .img-nav {
+    width: 100%;
+    height: auto;
+  }
+
+  .card-img-top {
+    height: 200px;
+  }
+
+  footer {
+    height: auto;
+    padding: 20px;
+  }
+
+  footer div {
+    flex-direction: column;
+  }
+
+  .boton {
+    width: 100%;
+  }
+}
+
+  /* Estilos para pantallas muy pequeñas (Movil) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .card-img-top {
+    height: 150px;
+    width: 100%;
+  }
+
+  #navbar{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-nav {
+    width: 100%;
+    height: auto;
+  }
+
+  header {
+    padding: 10px 0;
+    font-size: 14px;
+    height: auto;
+    margin-bottom: 1rem; /* reducido para móviles para no ocultar contenido */
+  }
+
+  /* Compensar la barra de navegación fija: el padding se ajusta
+     dinámicamente con JavaScript, pero dejamos una regla por si
+     JS no se ejecuta. */
+  body {
+    padding-top: 70px; /* valor por defecto si JS no corre */
+  }
+
+  /* En móvil queremos que el texto dentro de las tarjetas sea
+     completamente legible, por eso la opacidad pasa a 100%. */
+  .card-body {
+    opacity: 1;
+  }
+
+  section {
+    padding: 10px;
+    gap: 50px;
+    margin: 1% auto;
+    min-height: auto;
+  }
+
+  #frutas-carousel {
+    height: auto;
+    width: 100%;
+  }
+
+  .carousel-item {
+    height: auto;
+    width: 100%;
+    padding: 0 5px;
+    box-sizing: border-box;
+    gap: 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .carousel-item img {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+  } 
+
+  footer {
+    height: auto;
+    padding: 10px;
+  }
+  footer div {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #logo-footer {
+    width: 100%;
+  }
+
+  .img-footer {
+    width: 20%;
+    height: auto;
+  }
+
+  #redes-sociales {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  footer div a {
+    margin: 5px 0;
+  }
+
+  footer div a img {
+    width: 5vh;
+    height: 5vh;
+    margin: 0 5px;
+  }
+
+  .boton {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 14px;
+  }
 }
