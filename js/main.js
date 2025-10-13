@@ -96,7 +96,13 @@ function initLazyLoading() {
   }
 }
 
-window.addEventListener('load', initLazyLoading);
+// Ejecutar initLazyLoading inmediatamente si la página ya está cargada,
+// o esperar al evento load en caso contrario.
+if (document.readyState === 'complete') {
+  initLazyLoading();
+} else {
+  window.addEventListener('load', initLazyLoading);
+}
 
 // Opcional: desplazar al top suavemente al cargar la página
 window.scrollTo({ top: 0, behavior: 'smooth' });
