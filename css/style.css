@@ -68,11 +68,19 @@ header{
   color: #fff;
   position: relative;
   padding: 20px 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Quitar sombra para evitar la línea oscura en la parte inferior */
+  box-shadow: none;
   margin-bottom: 20px;
   border-radius: 0 0 10px 10px;
   z-index: 3;
 } 
+
+/* Regla específica para el navbar: sobreescribe la clase Bootstrap 'shadow-sm'
+   y elimina cualquier línea/sombra inferior visible */
+#navbar {
+  box-shadow: none !important;
+  border-bottom: none !important;
+}
 
 /* Carrusel: cada elemento del carrusel se centra
   y mantiene una transición suave al cambiar de slide */
