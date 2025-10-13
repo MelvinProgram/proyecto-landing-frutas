@@ -18,6 +18,14 @@ python -m http.server 8000
 # Abrir http://localhost:8000
 ```
 
+También puedes usar npm (requiere Node.js):
+
+```powershell
+npm install
+npm start
+# Abrir http://localhost:8000
+```
+
 ## Desplegar
 - GitHub Pages:
   - En repositorio público, en Settings -> Pages seleccionar la rama `main` y carpeta `/ (root)`.
@@ -29,6 +37,11 @@ python -m http.server 8000
 - Agregar CI (linting, build) si el proyecto crece.
 - Minificar CSS/JS para producción.
 - Revisar contrastes y accesibilidad (WCAG) con herramientas automáticas.
+
+## Integración continua
+
+Se añadió un workflow simple en `.github/workflows/html-lint.yml` que ejecuta `html-validate` en cada push/pull request a `main`.
+Puedes extenderlo para ejecutar pruebas o builds.
 
 ## Notas
 - Se añadió un enlace "Saltar al contenido" y meta tags para SEO/telefono.
