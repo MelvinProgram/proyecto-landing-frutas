@@ -55,55 +55,6 @@ window.addEventListener('load', () => {
 });
 window.addEventListener('resize', adjustBodyPaddingForNavbar);
 
-// Lazy-loading con IntersectionObserver
-function initLazyLoading() {
-  const lazyImages = document.querySelectorAll('img.lazy');
-  if ('IntersectionObserver' in window) {
-    const obs = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          const picture = img.closest('picture');
-          if (picture) {
-            picture.querySelectorAll('source').forEach(source => {
-              const ds = source.getAttribute('data-srcset');
-              if (ds) source.setAttribute('srcset', ds);
-            });
-          }
-          const dsImg = img.getAttribute('data-src');
-          if (dsImg) img.setAttribute('src', dsImg);
-          img.classList.remove('lazy');
-          observer.unobserve(img);
-        }
-      });
-    }, { rootMargin: '200px 0px' });
-
-    lazyImages.forEach(img => obs.observe(img));
-  } else {
-    // Fallback: cargar todas inmediatamente
-    lazyImages.forEach(img => {
-      const picture = img.closest('picture');
-      if (picture) {
-        picture.querySelectorAll('source').forEach(source => {
-          const ds = source.getAttribute('data-srcset');
-          if (ds) source.setAttribute('srcset', ds);
-        });
-      }
-      const dsImg = img.getAttribute('data-src');
-      if (dsImg) img.setAttribute('src', dsImg);
-      img.classList.remove('lazy');
-    });
-  }
-}
-
-// Ejecutar initLazyLoading inmediatamente si la página ya está cargada,
-// o esperar al evento load en caso contrario.
-if (document.readyState === 'complete') {
-  initLazyLoading();
-} else {
-  window.addEventListener('load', initLazyLoading);
-}
-
 // Opcional: desplazar al top suavemente al cargar la página
 window.scrollTo({ top: 0, behavior: 'smooth' });
 

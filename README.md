@@ -43,20 +43,6 @@ npm start
 Se añadió un workflow simple en `.github/workflows/html-lint.yml` que ejecuta `html-validate` en cada push/pull request a `main`.
 Puedes extenderlo para ejecutar pruebas o builds.
 
-## Optimizar imágenes (generar WebP/AVIF)
-
-He incluido un script Node para generar versiones WebP y AVIF de las imágenes en `assets/image/frutas`.
-
-Pasos:
-
-```powershell
-cd 'c:\Users\CANEL\Documents\GitHub\proyecto-landing-frutas'
-npm install --save-dev sharp
-npm run images:optimize
-```
-
-El script crea archivos `.webp` y `.avif` junto a las imágenes originales. Después puedes actualizar más `img` a `picture` si quieres.
-
 ## Notas
 - Se añadió un enlace "Saltar al contenido" y meta tags para SEO/telefono.
 - Se añadió lógica JS para ajustar `padding-top` según la altura del `navbar`.
