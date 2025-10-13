@@ -479,3 +479,22 @@ footer div a img:hover{
     font-size: 14px;
   }
 }
+
+/* Enlace "Saltar al contenido" (accesibilidad)
+   - oculto visualmente por defecto, visible al obtener foco
+*/
+.skip-link{
+  position: absolute;
+  top: -40px;
+  left: 8px;
+  background: #ffffff;
+  color: #049a43;
+  padding: 8px 12px;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  z-index: 9999;
+  transition: top 0.2s ease-in-out;
+}
+.skip-link:focus{
+  top: 8px;
+}

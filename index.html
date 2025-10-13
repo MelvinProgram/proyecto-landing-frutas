@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta para SEO y experiencia en móvil -->
+    <meta name="description" content="Estrella Tropical — descubre frutas exóticas con fotos, descripciones y beneficios. Aprende sobre pitahaya, mangostán, durian y más.">
+    <meta name="theme-color" content="#049a43">
+    <!-- Preconnect para mejorar la carga de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fuente Poppins (usada en CSS) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Css -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- Bootstrap -->
@@ -12,6 +20,8 @@
     <title>Estrella Tropical</title>
 </head>
 <body class="visible bg-body-secondary text-success-emphasis" data-bs-theme="light" id="top">
+    <!-- Enlace para saltar al contenido (mejora accesibilidad) -->
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
     <header id="header">
         <nav id="navbar" class="d-flex justify-content-between bg-light bg-gradient bg-opacity-60 shadow-sm text-success-emphasis btn-group px-4 m-0 my-0 navbar-expand-lg fixed-top top-1" data-bs-theme="light">
             <div>
@@ -31,7 +41,7 @@
             </ul>
         </nav>
     </header>
-    <main class="container-md w-100 mx-4 my-2 bg-light bg-gradient text-success-emphasis  rounded" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100" tabindex="0">
+    <main id="main-content" role="main" class="container-md w-100 mx-4 my-2 bg-light bg-gradient text-success-emphasis  rounded" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100" tabindex="0">
         
         <!-- class="bg-light border rounded py-4 text-success-emphasis" -->
         <section id="bienvenida" class="my-5 px-3 py-4 scroll-section section-visible" data-bs-theme="light">
