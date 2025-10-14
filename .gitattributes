@@ -1,2 +1,29 @@
+# Auto-detect text files and normalize line endings
+* text=auto
+
+# Explicit text files
+*.html text
+*.css text
+*.js text
+*.json text
+*.md text
+*.yml text
+*.yaml text
+
+# Shell scripts should use LF
+*.sh text eol=lf
+
+# Mark common binary formats so Git won't try to normalize them
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.zip binary
+
+# Node modules and vendor files are treated as binary/content - avoid accidental normalization
+node_modules/** -text
 # Auto detect text files and perform LF normalization
 * text=auto
