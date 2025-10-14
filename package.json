@@ -11,6 +11,6 @@
   "author": "Melvin Brito",
   "license": "MIT",
   "devDependencies": {
-    "sharp": "^0.32.4"
+    "sharp": "^0.32.6"
   }
 }
