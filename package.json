@@ -5,8 +5,12 @@
   "scripts": {
     "start": "npx http-server -c-1 -p 8000",
     "build": "echo \"No build step configured. Add a bundler if needed.\"",
-    "lint:html": "npx html-validate index.html"
+    "lint:html": "npx html-validate index.html",
+    "generate-fallbacks": "node scripts/generate-fallbacks.js"
   },
   "author": "Melvin Brito",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "sharp": "^0.32.4"
+  }
 }

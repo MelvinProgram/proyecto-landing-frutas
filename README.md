@@ -38,6 +38,31 @@ npm start
 - Minificar CSS/JS para producción.
 - Revisar contrastes y accesibilidad (WCAG) con herramientas automáticas.
 
+### Generar fallbacks JPG/PNG desde WebP (script)
+
+He añadido un script Node para generar imágenes de fallback (JPEG) a partir de los archivos `.webp` que hay en `assets/`.
+
+- Archivo: `scripts/generate-fallbacks.js`
+- Dependencia: `sharp` (instalar en devDependencies)
+- Comando npm: `npm run generate-fallbacks`
+
+Instrucciones rápidas:
+
+```powershell
+cd 'c:\Users\CANEL\Documents\GitHub\proyecto-landing-frutas'
+npm install
+# instala sharp como devDependency (si no lo hiciste automáticamente):
+npm install --save-dev sharp
+npm run generate-fallbacks -- --src assets/image/frutas --quality 82
+# Esto generará archivos .jpg junto a cada .webp si no existen.
+```
+
+Opciones:
+- `--src` : ruta base a explorar (por defecto `assets/image/frutas`).
+- `--quality` : calidad JPEG (por defecto `82`).
+
+El script es intencionalmente conservador: no sobreescribe archivos existentes con el mismo nombre y extensión.
+
 ## Integración continua
 
 Se añadió un workflow simple en `.github/workflows/html-lint.yml` que ejecuta `html-validate` en cada push/pull request a `main`.
