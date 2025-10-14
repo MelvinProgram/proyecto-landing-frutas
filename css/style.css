@@ -58,8 +58,6 @@ body{
 */
 header{
   width: 100%;
-  /* height: 0vh; */
-  background: url('../assets/image/bg-header.jpg') no-repeat center center/cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -85,8 +83,7 @@ header{
 /* Carrusel: cada elemento del carrusel se centra
   y mantiene una transición suave al cambiar de slide */
 .carousel-item{
-  /* Contenedor del slide: dejar que la imagen dentro controle cómo se escala
-     y centrar el contenido. No forzamos object-fit aquí. */
+  object-fit: cover;
   width: 100%;
   height: 100%;
   display: flex;
@@ -101,15 +98,15 @@ header{
    - max-height evita que la imagen sea excesivamente alta
 */
 .img-0{
-  /* Imagen principal del carrusel: mostrarla completa dentro del contenedor
-     sin recortar (object-fit: contain). Mantener max-height para no romper el layout. */
-  object-fit: contain;
+  /* Ajusta la opacidad y el efecto de desplazamiento */
+  object-fit: cover;
   width: 100%;
   height: auto;
   max-height: 70vh;
-  background-color: #ffffff; /* evita fondos transparentes extraños */
   filter: brightness(0.7);
   transition: filter 0.3s ease-in-out;
+  /* border-radius: 10px; */
+
 }
 
 .img-0:hover {
@@ -162,15 +159,10 @@ section{
  ******************** Card Style ********************
  ********************            *********************/
 .card-img-top {
-  /* Imágenes de las tarjetas: mostrar completas sin recortar.
-     Usamos max-height para mantener el aspecto visual y que las tarjetas
-     conserven altura consistente. */
-  width: 100%;
-  height: auto;
-  max-height: 400px;
-  object-fit: contain;
-  background-color: #ffffff;
+  height: 400px;       /* altura fija */
+  object-fit: cover;   /* recorta pero mantiene proporción */
   transition: transform 0.3s;
+  aspect-ratio: 9 / 16; /* Mantiene una proporción de 9:16 */
 }
 
 /* Tarjetas (cards)
@@ -196,7 +188,8 @@ section{
    - al hacer hover la opacidad pasa a 1 para mejorar lectura
 */
 .card-body {
-  opacity: 50%;
+  /* Usar valor numérico entre 0 y 1 para opacity */
+  opacity: 0.5;
   transition: opacity 0.3s ease-in-out;
 }
 /* Efecto de desvanecimiento */
@@ -219,7 +212,7 @@ section{
 img{
   max-width: 100%;
   height: auto;
-  object-fit: contain; /* Mostrar imagen completa dentro del contenedor */
+  object-fit: cover;
   display: block; /* Elimina el espacio debajo de la imagen */
   margin: 0 auto;
 }
@@ -274,16 +267,8 @@ footer div{
   margin: 0 auto;
 }
 
-/* Imágenes (regla global)
-   - max-width y height auto hacen las imágenes responsivas
-*/
-img{
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-  display: block; /* Elimina el espacio debajo de la imagen */
-  margin: 0 auto;
-}
+/* Nota: la regla global de `img` ya está definida más arriba y
+  fue eliminada aquí para evitar duplicidad. */
 
 /* Estilos para las imágenes de redes sociales del footer */
 footer div a img{
@@ -344,21 +329,97 @@ footer div a img:hover{
     height: auto;
   }
 
+  header {
+    padding: 10px 0;
+    font-size: 14px;
+    height: auto;
+    margin-bottom: 1rem; /* reducido para móviles para no ocultar contenido */
+  }
+  /* Compensar la barra de navegación fija: el padding se ajusta
+     dinámicamente con JavaScript, pero dejamos una regla por si
+     JS no se ejecuta. */
+  body {
+    padding-top: 70px; /* valor por defecto si JS no corre */     
+  }
+
   .card-img-top {
     height: 200px;
   }
 
-  footer {
-    height: auto;
-    padding: 20px;
+  section {
+    padding: 10px;
+    gap: 50px;
+    margin: 1% auto;
+    min-height: auto;
   }
 
+  #frutas-carousel {
+    height: auto;
+    width: 100%;
+  }
+
+  .carousel-item {
+    height: auto;
+    width: 100%;
+    padding: 0 5px;
+    box-sizing: border-box;
+    gap: 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .carousel-item img {
+    height: 330px;
+    width: 100%;
+    object-fit:cover;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+  } 
+
+footer {
+    height: auto;
+    padding: 10px;
+  }
   footer div {
     flex-direction: column;
+    width: 100%;
+  }
+
+  #logo-footer {
+    width: 100%;
+  }
+
+  .img-footer {
+    width: 20%;
+    height: auto;
+  }
+
+  #redes-sociales {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  footer div a {
+    margin: 5px 0;
+  }
+
+  footer div a img {
+    width: 5vh;
+    height: 5vh;
+    margin: 0 5px;
   }
 
   .boton {
     width: 100%;
+    padding: 8px 10px;
+    font-size: 14px;
   }
 }
 
@@ -437,12 +498,11 @@ footer div a img:hover{
   .carousel-item img {
     height: 220px;
     width: 100%;
-    object-fit: contain; /* Mostrar la imagen completa en el slide (no recortar) */
+    object-fit: cover;
     border-radius: 10px;
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
-    background-color: #ffffff;
   } 
 
   footer {
