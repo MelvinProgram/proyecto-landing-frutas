@@ -103,7 +103,7 @@ header{
   width: 100%;
   height: auto;
   max-height: 70vh;
-  filter: brightness(0.7);
+  filter: brightness(0.9);
   transition: filter 0.3s ease-in-out;
   /* border-radius: 10px; */
 
@@ -209,17 +209,30 @@ section{
  ******************** Image Style ********************    
  ********************            *********************/
 
-img{
-  max-width: 100%;
+#frutasCarousel {
+  width: 100%;
   height: auto;
-  object-fit: cover;
-  display: block; /* Elimina el espacio debajo de la imagen */
+  max-height: 70vh;
   margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.carousel-item img {
+  height: 650px;
+  width: 60%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  display: block; /* Elimina el espacio debajo de la imagen */
 }
 
 .img-nav{
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
 }
 
@@ -234,16 +247,14 @@ footer{
   border: 1px solid rgb(255, 255, 255);
   width: 100%;
   height: 60vh;
-  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
   font-weight: 600;
   text-align: center;
   font-size: 1.2rem;
-
+  margin-top: 5%;
 }
 
 
@@ -259,12 +270,17 @@ footer div{
   margin: 0 auto;
 
 }
-
-.img-footer {
-  width: 12%;
-  height: 10%; 
+#logo-footer {
+  width: 100%;
+  height: auto;
   object-fit: cover;
   margin: 0 auto;
+}
+
+.img-footer {
+  width: 100%;
+  height: 60px; 
+  object-fit: cover;
 }
 
 /* Nota: la regla global de `img` ya está definida más arriba y
@@ -272,8 +288,8 @@ footer div{
 
 /* Estilos para las imágenes de redes sociales del footer */
 footer div a img{
-  width: 3vh;
-  height: 3vh;
+  width: 4vh;
+  height: 4vh;
   object-fit: contain; 
   margin: 0 auto;
   transition: transform 0.3s ease-in-out;
@@ -323,7 +339,7 @@ footer div a img:hover{
      y 480px (móviles pequeños).
 */
 /* Estilos para pantallas pequeñas */
-@media (max-width: 768px) {
+@media (max-width: 769px) and (min-width: 481px) {
   .img-nav {
     width: 100%;
     height: auto;
@@ -381,9 +397,14 @@ footer div a img:hover{
     box-sizing: border-box;
   } 
 
+  .card-body {
+    opacity: 1;
+  }
+
 footer {
-    height: auto;
+    height: 50dvh;
     padding: 10px;
+    margin-top: 5%;
   }
   footer div {
     flex-direction: column;
@@ -395,7 +416,7 @@ footer {
   }
 
   .img-footer {
-    width: 20%;
+    width: 100%;
     height: auto;
   }
 
@@ -411,8 +432,8 @@ footer {
   }
 
   footer div a img {
-    width: 5vh;
-    height: 5vh;
+    width: 4vh;
+    height: 4vh;
     margin: 0 5px;
   }
 
@@ -425,9 +446,13 @@ footer {
 
   /* Estilos para pantallas muy pequeñas (Movil) */
 @media (max-width: 480px) {
+  /* Compensar la barra de navegación fija: el padding se ajusta
+     dinámicamente con JavaScript, pero dejamos una regla por si
+     JS no se ejecuta. */
   body {
     font-size: 14px;
     line-height: 1.4;
+    padding-top: 70px; /* valor por defecto si JS no corre */
   }
 
   .card-img-top {
@@ -440,10 +465,16 @@ footer {
     align-items: center;
   }
 
+  #navbar li {
+    margin: 3px 0;
+    width: 100%;
+  }
+
   .nav-tabs {
     flex-direction: column;
     align-items: center;
   }
+
 
   .img-nav {
     width: 100%;
@@ -457,13 +488,25 @@ footer {
     margin-bottom: 1rem; /* reducido para móviles para no ocultar contenido */
   }
 
-  /* Compensar la barra de navegación fija: el padding se ajusta
-     dinámicamente con JavaScript, pero dejamos una regla por si
-     JS no se ejecuta. */
-  body {
-    padding-top: 70px; /* valor por defecto si JS no corre */
+  /* Ajustes para el texto dentro de las tarjetas */
+  
+  .div-texto {
+    width: 100%;
+    margin: 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+    text-align: center;
   }
 
+  .div-texto p{
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+
+  }
   /* En móvil queremos que el texto dentro de las tarjetas sea
      completamente legible, por eso la opacidad pasa a 100%. */
   .card-body {
@@ -472,8 +515,8 @@ footer {
 
   section {
     padding: 10px;
-    gap: 50px;
-    margin: 1% auto;
+    gap: 30px;
+    margin: 0 auto;
     min-height: auto;
   }
 
@@ -508,6 +551,7 @@ footer {
   footer {
     height: auto;
     padding: 10px;
+    margin-top: 5%;
   }
   footer div {
     flex-direction: column;
@@ -516,10 +560,14 @@ footer {
 
   #logo-footer {
     width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
   }
 
   .img-footer {
-    width: 20%;
+    width: 100%;
     height: auto;
   }
 
@@ -535,8 +583,8 @@ footer {
   }
 
   footer div a img {
-    width: 5vh;
-    height: 5vh;
+    width: 3vh;
+    height: 3vh;
     margin: 0 5px;
   }
 
