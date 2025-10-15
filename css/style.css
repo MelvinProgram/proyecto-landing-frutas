@@ -595,6 +595,29 @@ footer {
     padding: 8px 10px;
     font-size: 14px;
   }
+
+  /* Imagen principal del carrusel (.img-0)
+   - ocupa el 100% del ancho del contenedor
+   - max-height evita que la imagen sea excesivamente alta
+*/
+.img-0{
+  /* Ajusta la opacidad y el efecto de desplazamiento */
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  filter: brightness(1.0);
+  transition: filter 0.3s ease-in-out;
+  /* border-radius: 10px; */
+
+  }
+  .img-0:hover {
+  filter: brightness(1);
+  transform: scale(1.02);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
 }
 
 /* Enlace "Saltar al contenido" (accesibilidad)
