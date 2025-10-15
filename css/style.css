@@ -458,15 +458,23 @@ footer {
   .card-img-top {
     height: 150px;
     width: 100%;
+    object-fit: cover;
+    aspect-ratio: 9 / 16; /* Mantiene una proporción de 9:16 */
+    margin: 0 auto;
+    padding: 0;
   }
 
   #navbar{
     flex-direction: column;
-    align-items: center;
+    flex-wrap:wrap;
+    align-content: center;
+    gap: 5px;
+    padding: 5px 0;
+    width: 100%;
   }
 
   #navbar li {
-    margin: 5px 0;
+    margin: 2px 0;
     width: 100%;
   }
 
@@ -507,12 +515,17 @@ footer {
     margin: 0 auto;
     padding: 0 10px;
     box-sizing: border-box;
-
+    text-align: center;
+    margin-bottom: 15px;
   }
   /* En móvil queremos que el texto dentro de las tarjetas sea
      completamente legible, por eso la opacidad pasa a 100%. */
   .card-body {
+    width: 100%;
     opacity: 1;
+    /* padding: 10px; */
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 
   section {
@@ -547,7 +560,7 @@ footer {
     border-radius: 10px;
     margin: 0 auto;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box;  
   } 
 
   footer {
@@ -605,7 +618,7 @@ footer {
   object-fit: cover;
   width: 100%;
   height: auto;
-  max-height: 70vh;
+  max-height: 90vh;
   filter: brightness(1.0);
   opacity: 1.0;
   transition: filter 0.3s ease-in-out;
