@@ -466,13 +466,15 @@ footer {
   }
 
   #navbar li {
-    margin: 3px 0;
+    margin: 5px 0;
     width: 100%;
   }
 
   .nav-tabs {
     flex-direction: column;
     align-items: center;
+    width: 50%;
+    margin: 5px auto;
   }
 
 
