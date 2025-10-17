@@ -358,6 +358,16 @@ footer div a img:hover{
     padding-top: 70px; /* valor por defecto si JS no corre */     
   }
 
+  #navbar{
+    flex-direction: row;
+    flex-wrap:wrap;
+    align-content: center;
+    gap: 5px;
+    padding: 5px 0;
+    width: 100%;
+    transition: top 0.5s ease-in; /* Suaviza cambios de tamaño */
+  }
+
   .card-img-top {
     height: 200px;
   }
@@ -455,6 +465,16 @@ footer {
     padding-top: 70px; /* valor por defecto si JS no corre */
   }
 
+  #navbar{
+    flex-direction: column;
+    flex-wrap:wrap;
+    align-content: center;
+    gap: 5px;
+    padding: 5px 0;
+    width: 100%;
+    transition: top 0.5s ease-in; /* Suaviza cambios de tamaño */
+  }
+
   .card-img-top {
     height: 150px;
     width: 100%;
@@ -471,6 +491,7 @@ footer {
     gap: 5px;
     padding: 5px 0;
     width: 100%;
+    transition: top 0.5s ease-in; /* Suaviza cambios de tamaño */
   }
 
   #navbar li {
@@ -533,6 +554,15 @@ footer {
     gap: 30px;
     margin: 0 auto;
     min-height: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  section .galeria .section-visible {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   #frutas-carousel {

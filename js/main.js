@@ -1,3 +1,52 @@
+// js/main.js
+
+// Navbar hide/show on scroll
+let lastScrollTop = 0; // última posición de scroll conocida
+let delta = 100; // cantidad de píxeles antes de mostrar de nuevo la navbar
+let alfa = 80; // cantidad de píxeles antes de ocultar la navbar
+const navbar = document.querySelector("#navbar"); // Asegurarse de que la clase coincide con la del HTML
+
+window.addEventListener("scroll", function() {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  // Si baja más de delta, ocultar
+  if (scrollTop > lastScrollTop && scrollTop > delta) {
+    navbar.style.top = "-70px";
+  } 
+  // Si sube más de alfa, mostrar
+  else if (lastScrollTop - scrollTop > alfa) {
+    navbar.style.top = "0";
+  }
+
+  // lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; evitar valores negativos
+
+  // Ajustar el padding del body para que no quede debajo del navbar
+  adjustBodyPaddingForNavbar();
+
+  const navbarCollapse = document.querySelector(".nav-tabs"); // Ajustar según la clase real del menú móvil
+
+    
+  const navbarHeight = navbar.offsetHeight; // Altura dinámica del navbar
+
+  // Si el menú móvil está abierto, no ocultar
+  if (navbarCollapse.classList.contains("show")) {
+    navbar.style.top = "0";
+    return;
+  }
+
+  // Ocultar al bajar
+  if (scrollTop > lastScrollTop && scrollTop > delta) {
+    navbar.style.top = `-${navbarHeight}px`;
+  } 
+  // Mostrar al subir
+  else if (lastScrollTop - scrollTop > alfa) {
+    navbar.style.top = "0";
+  }
+
+  lastScrollTop = Math.max(scrollTop, 0); // evitar valores negativos
+
+});
+
 // Lista de secciones que se revelan al hacer scroll
 const sections = document.querySelectorAll('.scroll-section');
 
