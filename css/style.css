@@ -466,10 +466,10 @@ footer {
   }
 
   .card-img-top {
-    height: 150px;
+    height: 200px;
     width: 100%;
     object-fit: cover;
-    aspect-ratio: 9 / 16; /* Mantiene una proporción de 9:16 */
+    aspect-ratio: 9 / 16;
     margin: 0 auto;
     padding: 0;
   }
@@ -571,6 +571,10 @@ footer {
     gap: 0;
     padding: 40px 0;
     margin: 40px 0;    
+  }
+  
+  .card-img-top {
+
   }
 
   #frutas-carousel {
