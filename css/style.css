@@ -218,7 +218,44 @@ section{
   box-sizing: border-box;
   object-fit: cover;
   border-radius: 10px;
+  position: relative;
+  overflow: visible;
+  z-index: 1;
 }
+
+/* Controladores centrados verticalmente */
+#frutasCarousel .carousel-control-prev,
+#frutasCarousel .carousel-control-next {
+  width: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+#frutasCarousel .carousel-control-prev:hover,
+#frutasCarousel .carousel-control-next:hover {
+  opacity: 1;
+}
+
+/* Íconos visibles y estilizados */
+#frutasCarousel .carousel-control-prev-icon,
+#frutasCarousel .carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.329);
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  padding: 1rem;
+}
+
+/* Asegura que las imágenes no recorten los botones */
+#frutasCarousel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 .carousel-item img {
   height: 650px;
   width: 60%;
@@ -339,7 +376,7 @@ footer div a img:hover{
      y 480px (móviles pequeños).
 */
 /* Estilos para pantallas pequeñas */
-@media (max-width: 769px) and (min-width: 481px) {
+@media (max-width: 768px){
   .img-nav {
     width: 100%;
     height: auto;
@@ -379,11 +416,11 @@ footer div a img:hover{
     min-height: auto;
   }
 
-  #frutas-carousel {
-    height: auto;
-    width: 100%;
+  #frutasCarousel .carousel-control-prev-icon,
+  #frutasCarousel .carousel-control-next-icon {
+    padding: 1.2rem;
   }
-
+  
   .carousel-item {
     height: auto;
     width: 100%;
@@ -556,6 +593,11 @@ footer {
     min-height: auto;
     padding-left: 0;
     padding-right: 0;
+  }
+
+  #frutasCarousel .carousel-control-prev-icon,
+  #frutasCarousel .carousel-control-next-icon {
+    padding: 1.2rem;
   }
 
   #frutasCarousel img{
