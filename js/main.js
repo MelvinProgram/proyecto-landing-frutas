@@ -1,132 +1,95 @@
 // js/main.js
 
-// Navbar hide/show on scroll
-let lastScrollTop = 0; // última posición de scroll conocida
-let delta = 100; // cantidad de píxeles antes de mostrar de nuevo la navbar
-let alfa = 80; // cantidad de píxeles antes de ocultar la navbar
-const navbar = document.querySelector("#navbar"); // Asegurarse de que la clase coincide con la del HTML
+// =========================
+// NAVBAR HIDE / SHOW ON SCROLL (Optimizado con requestAnimationFrame)
+// =========================
+let lastScrollTop = 0;
+const delta = 100;
+const navbar = document.querySelector("#navbar");
+const navbarCollapse = document.querySelector(".navbar-collapse");
+let ticking = false; // evita múltiples llamadas simultáneas
 
-window.addEventListener("scroll", function() {
+function handleNavbarScroll() {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const navbarHeight = navbar.offsetHeight;
 
-  // Si baja más de delta, ocultar
-  if (scrollTop > lastScrollTop && scrollTop > delta) {
-    navbar.style.top = "-70px";
-  } 
-  // Si sube más de alfa, mostrar
-  else if (lastScrollTop - scrollTop > alfa) {
+  // No ocultar si el menú móvil está abierto
+  if (navbarCollapse && navbarCollapse.classList.contains("show")) {
     navbar.style.top = "0";
-  }
-
-  // lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; evitar valores negativos
-
-  // Ajustar el padding del body para que no quede debajo del navbar
-  adjustBodyPaddingForNavbar();
-
-  const navbarCollapse = document.querySelector(".nav-tabs"); // Ajustar según la clase real del menú móvil
-
-    
-  const navbarHeight = navbar.offsetHeight; // Altura dinámica del navbar
-
-  // Si el menú móvil está abierto, no ocultar
-  if (navbarCollapse.classList.contains("show")) {
-    navbar.style.top = "0";
+    lastScrollTop = scrollTop;
     return;
   }
 
+  // Evitar pequeñas variaciones de scroll (mejora estabilidad)
+  if (Math.abs(scrollTop - lastScrollTop) <= delta) return;
+
   // Ocultar al bajar
-  if (scrollTop > lastScrollTop && scrollTop > delta) {
+  if (scrollTop > lastScrollTop && scrollTop > navbarHeight) {
     navbar.style.top = `-${navbarHeight}px`;
   } 
   // Mostrar al subir
-  else if (lastScrollTop - scrollTop > alfa) {
+  else if (lastScrollTop - scrollTop > delta) {
     navbar.style.top = "0";
   }
 
-  lastScrollTop = Math.max(scrollTop, 0); // evitar valores negativos
+  lastScrollTop = Math.max(scrollTop, 0);
+}
 
+window.addEventListener("scroll", () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      handleNavbarScroll();
+      ticking = false;
+    });
+    ticking = true;
+  }
 });
 
-// Lista de secciones que se revelan al hacer scroll
-const sections = document.querySelectorAll('.scroll-section');
+// =========================
+// REVEAL SECTIONS ON SCROLL
+// =========================
+const sections = document.querySelectorAll(".scroll-section");
 
-// Función: revealOnScroll
-// - Calcula cuando cada sección entra en el viewport
-// - Añade la clase 'visible' para activar la animación CSS
 function revealOnScroll() {
-  // Punto desde la parte inferior de la pantalla que activa la visibilidad
-  const triggerBottom = window.innerHeight * 0.70;
+  const triggerBottom = window.innerHeight * 0.7;
 
   sections.forEach(section => {
     const sectionTop = section.getBoundingClientRect().top;
-    
-    
-    if(sectionTop < triggerBottom) {
-      section.classList.add('visible');
-    }
-    else {
-      section.classList.remove('visible');
-    }
-
-    // Si la sección es visible, añadimos una clase al body para permitir
-    // estilos o comportamientos globales basados en la visibilidad.
-    if(section.classList.contains('visible')) {
-      document.body.classList.add('section-visible');
-    } else {
-      document.body.classList.remove('section-visible');
-    }
+    section.classList.toggle("visible", sectionTop < triggerBottom);
   });
+
+  document.body.classList.toggle(
+    "section-visible",
+    Array.from(sections).some(s => s.classList.contains("visible"))
+  );
 }
 
-// Listeners: actualizar visibilidad al hacer scroll y al cargar la página
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
-revealOnScroll();
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
 
-// Función: adjustBodyPaddingForNavbar
-// - Calcula la altura del navbar (o header) y aplica ese valor como
-//   padding-top al <body> para que el contenido no quede debajo del nav.
+// =========================
+// AJUSTAR PADDING DEL BODY
+// =========================
 function adjustBodyPaddingForNavbar() {
-  const navbar = document.querySelector('#navbar') || document.querySelector('header');
-  if (!navbar) return; // nada que hacer si no existe
+  if (!navbar) return;
   const navHeight = navbar.offsetHeight;
-  // Verificamos el padding actual y lo actualizamos sólo si difiere
-  const currentPadding = parseInt(window.getComputedStyle(document.body).paddingTop, 10) || 0;
-  if (currentPadding !== navHeight) {
-    document.body.style.paddingTop = navHeight + 'px';
-  }
+  document.body.style.paddingTop = navHeight + "px";
 }
 
-// Ejecutar al cargar y al redimensionar para asegurar correcto espaciado
-window.addEventListener('load', () => {
-  adjustBodyPaddingForNavbar();
-  revealOnScroll();
-});
-window.addEventListener('resize', adjustBodyPaddingForNavbar);
+window.addEventListener("load", adjustBodyPaddingForNavbar);
+window.addEventListener("resize", adjustBodyPaddingForNavbar);
 
-// Opcional: desplazar al top suavemente al cargar la página
-window.scrollTo({ top: 0, behavior: 'smooth' });
-
-// Optional: If you want to add a smooth scroll effect when navigating through anchor links
-// Smooth scroll para enlaces ancla
+// =========================
+// SMOOTH SCROLL EN ENLACES
+// =========================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
+  anchor.addEventListener("click", e => {
     e.preventDefault();
+    const target = document.querySelector(anchor.getAttribute("href"));
+    if (!target) return;
+    const topOffset = navbar.offsetHeight;
+    const offsetPosition = target.offsetTop - topOffset;
 
-    const target = document.querySelector(this.getAttribute('href'));
-    // tomamos la altura del header para compensar el scroll (nav fixed)
-    const topOffset = document.querySelector('header').offsetHeight;
-    const elementPosition = target.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - topOffset;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
   });
 });
-
-
-
-
-
