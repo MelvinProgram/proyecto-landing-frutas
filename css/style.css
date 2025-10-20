@@ -87,7 +87,7 @@ header{
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   transition: transform 0.5s ease-in-out;
   border-radius: 10px;
@@ -102,7 +102,12 @@ header{
   object-fit: cover;
   width: 100%;
   height: auto;
-  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 100%;
+  aspect-ratio: calc(6 / 3); 
   filter: brightness(0.9);
   transition: filter 0.3s ease-in-out;
   /* border-radius: 10px; */
@@ -608,15 +613,15 @@ footer {
     justify-content: center;
   }
 
+  .carrusel-item img {
+    opacity: 100;
+  }
+
   section > #galeria .section-visible {
     width: 100%;
     gap: 0;
     padding: 40px 0;
     margin: 40px 0;    
-  }
-  
-  .card-img-top {
-
   }
 
   #frutas-carousel {
@@ -659,8 +664,8 @@ footer {
   }
 
   footer div a img {
-    width: 8vh;
-    height: 8vh;
+    width: 4vh;
+    height: 4vh;
     margin: 0 5px;
   }
 
@@ -674,8 +679,8 @@ footer {
    - ocupa el 100% del ancho del contenedor
    - max-height evita que la imagen sea excesivamente alta
 */
-.img-0{
-  /* Ajusta la opacidad y el efecto de desplazamiento */
+/* .img-0{
+  Ajusta la opacidad y el efecto de desplazamiento
   object-fit: cover;
   width: 100%;
   height: auto;
@@ -690,9 +695,9 @@ footer {
   transform: scale(1.02);
   transition: all 0.3s ease-in-out;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  }
+  }*/
 
-}
+} 
 
 /* Enlace "Saltar al contenido" (accesibilidad)
    - oculto visualmente por defecto, visible al obtener foco
