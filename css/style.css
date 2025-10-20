@@ -21,6 +21,11 @@
    - display: se usa layout flexible para centrar contenidos
    - overflow-x: hidden evita barras horizontales indeseadas
 */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Ajusta según el alto del header */
+}
+
 body{
   scroll-behavior: smooth;
     
