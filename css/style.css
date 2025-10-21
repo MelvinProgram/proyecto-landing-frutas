@@ -83,6 +83,7 @@ header{
 #navbar {
   box-shadow: none !important;
   border-bottom: none !important;
+  transition: top 0.4s ease;
 }
 
 /* Carrusel: cada elemento del carrusel se centra
@@ -164,6 +165,18 @@ section{
   opacity: 1;
   transform: translateY(0); /* Vuelve a su posición original */
 }
+
+.scroll-section.visible:nth-child(odd) {
+  transform: translateX(0);
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+.scroll-section.visible:nth-child(even) {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 0.4s;
+}
+
 
 /*********************           ********************
  ******************** Card Style ********************
@@ -288,12 +301,15 @@ section{
  ********************            *********************/
 
 footer{
-  background-color: rgba(255, 255, 255, 0.9);
+  
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid rgb(255, 255, 255);
   width: 100%;
-  height: 60vh;
+  height: auto;
+  margin-top: 5%;
+  padding: 2rem 0;
+  background-color: #f0fdf4;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -301,7 +317,7 @@ footer{
   font-weight: 600;
   text-align: center;
   font-size: 1.2rem;
-  margin-top: 5%;
+  
 }
 
 
@@ -426,6 +442,32 @@ footer div a img:hover{
     min-height: auto;
   }
 
+  /* Secciones con efecto de aparición al hacer scroll
+   - .scroll-section comienza invisible y se muestra cuando
+     entra en pantalla añadiendo la clase .visible */
+.scroll-section {
+  opacity: 0; /* Inicialmente invisible */
+  transform: translateY(10vh); /* Se desplaza un poco hacia abajo */
+  transition: all 1.3s ease-out; /* Transición suave */
+}
+
+/* Cuando se activa */
+.scroll-section.visible {
+  opacity: 1;
+  transform: translateY(0); /* Vuelve a su posición original */
+}
+
+.scroll-section.visible:nth-child(odd) {
+  transform: translateX(0);
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+.scroll-section.visible:nth-child(even) {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 0.4s;
+}
+
   #frutasCarousel .carousel-control-prev-icon,
   #frutasCarousel .carousel-control-next-icon {
     padding: 1.2rem;
@@ -459,9 +501,12 @@ footer div a img:hover{
   }
 
 footer {
-    height: 50dvh;
-    padding: 10px;
+    width: 100%;
+    height: auto;
     margin-top: 5%;
+    padding: 2rem 0;
+    /* padding: 10px; */
+    /* margin-top: 5%; */
   }
   footer div {
     flex-direction: column;
@@ -605,6 +650,32 @@ footer {
     padding-right: 0;
   }
 
+  /* Secciones con efecto de aparición al hacer scroll
+   - .scroll-section comienza invisible y se muestra cuando
+     entra en pantalla añadiendo la clase .visible */
+.scroll-section {
+  opacity: 0; /* Inicialmente invisible */
+  transform: translateY(10vh); /* Se desplaza un poco hacia abajo */
+  transition: all 1.3s ease-out; /* Transición suave */
+}
+
+/* Cuando se activa */
+.scroll-section.visible {
+  opacity: 1;
+  transform: translateY(0); /* Vuelve a su posición original */
+}
+
+.scroll-section.visible:nth-child(odd) {
+  transform: translateX(0);
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+.scroll-section.visible:nth-child(even) {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 0.4s;
+}
+
   #frutasCarousel .carousel-control-prev-icon,
   #frutasCarousel .carousel-control-next-icon {
     padding: 1.2rem;
@@ -635,10 +706,12 @@ footer {
   }
 
   footer {
+    width: 100%;
     height: auto;
-    padding: 10px;
     margin-top: 5%;
+    padding: 2rem 0;
   }
+
   footer div {
     flex-direction: column;
     width: 100%;
