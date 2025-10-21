@@ -78,6 +78,18 @@ header{
   z-index: 3;
 } 
 
+ /* Ajustes para el texto dentro de las tarjetas */
+  .div-texto {
+    text-align:justify;
+  }
+
+  .div-texto > p{
+    font-size: 1.2rem;
+    line-height: 1.4;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
 /* Regla específica para el navbar: sobreescribe la clase Bootstrap 'shadow-sm'
    y elimina cualquier línea/sombra inferior visible */
 #navbar {
@@ -170,6 +182,12 @@ section{
   object-fit: cover;
   border: solid 1px #ff6b35c8;
   box-shadow: 1px 3px 5px #ff6b35c8;
+}
+
+#seccionAutor p {
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0;
 }
 
 /* Secciones con efecto de aparición al hacer scroll
@@ -635,23 +653,16 @@ footer {
   /* Ajustes para el texto dentro de las tarjetas */
   
   .div-texto {
-    width: 100%;
-    margin: 0;
-    padding: 0 10px;
-    box-sizing: border-box;
-    text-align: center;
+    text-align:justify;
   }
 
-  .div-texto p{
-    width: 100%;
-    font-size: 0.8rem;
+  .div-texto > p{
+    font-size: 15px;
     line-height: 1.4;
-    margin: 0 auto;
     padding: 0 10px;
     box-sizing: border-box;
-    text-align: center;
-    margin-bottom: 15px;
   }
+
   /* En móvil queremos que el texto dentro de las tarjetas sea
      completamente legible, por eso la opacidad pasa a 100%. */
   .card-body {
@@ -678,10 +689,17 @@ footer {
 #seccionAutor{
   width: 100%;
   height: auto;
-  padding: 50px 0;
+  padding: 20px 0;
   /* background: #00000061; */
   align-items: center;
   text-align: center;
+  margin: 0;
+}
+
+#seccionAutor p {
+  text-align:center;
+  margin: 0;
+  padding: 0;
 }
 
 #seccionAutor img {
