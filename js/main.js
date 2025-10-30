@@ -78,18 +78,3 @@ function adjustBodyPaddingForNavbar() {
 
 window.addEventListener("load", adjustBodyPaddingForNavbar);
 window.addEventListener("resize", adjustBodyPaddingForNavbar);
-
-// =========================
-// SMOOTH SCROLL EN ENLACES
-// =========================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", e => {
-    e.preventDefault();
-    const target = document.querySelector(anchor.getAttribute("href"));
-    if (!target) return;
-    const topOffset = navbar.offsetHeight;
-    const offsetPosition = target.offsetTop - topOffset;
-
-    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-  });
-});
